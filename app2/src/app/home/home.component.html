@@ -1,0 +1,48 @@
+<ActionBar>
+    <Label text="Home"></Label>
+</ActionBar>
+
+
+<!-- <GridLayout padding="50px">
+    <WrapLayout orientation="horizontal" backgroundColor="lightgray" padding="30px">
+        <Label text="Label 1" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 2" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 3" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 1" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 2" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 3" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 1" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 2" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+        <Label text="Label 3" width="100" height="100" backgroundColor="blue" margin="30px"></Label>
+    </WrapLayout>
+</GridLayout> -->
+<!-- <Gridlayout>
+    <WrapLayout orientation="vertical" backgroundColor="lightgray" padding="30px">
+        <ListView [items]="items" (itemTap)="onItemTap($event)" class="list-group" width="100px">
+            <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">     
+                    <Label [text]="item" width="100" height="100" backgroundColor="blue" margin="30px" class="list-group-item"></Label>
+            </ng-template>
+        </ListView>
+    </WrapLayout>
+</Gridlayout> -->
+<TabView selectedIndex="0" (selectedIndexChanged)="onSelectedIndexchanged($event)">
+    <StackLayout *tabItem="{title: 'Home', iconSource: 'res://home'}">
+        <GridLayout padding="50px">
+            <ScrollView>
+                <WrapLayout orientation="horizontal" backgroundColor="lightgray" padding="30px" height="4000px">
+                    <StackLayout *ngFor ="let item of tables">
+                        <Label [text]="item.id" width="80" height="80" backgroundColor="blue" margin="40px,50px,40px" (tap)="ontap(item)"></Label>
+                    </StackLayout>
+                </WrapLayout>
+            </ScrollView>
+        </GridLayout>
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Second Tab', iconSource: 'res://home'}">
+        <StackLayout>
+            <GridLayout padding="50px">
+                <Label text="Second Tab" textWrap="true" class="m-15 h2 text-left" color="blue"></Label>
+            </GridLayout>
+        </StackLayout>
+    </StackLayout>
+</TabView>
+
